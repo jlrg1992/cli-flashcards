@@ -1,0 +1,14 @@
+#!/bin/bash
+clear
+
+echo "--INTRUCTIONS--"
+echo "Enter to coninue | q to quit"
+while read i
+do
+	echo -n "$i"
+	read -e answer < /dev/tty
+	if [ "${answer}" = "q" ]
+		then
+		break
+	fi
+done < $1
