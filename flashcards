@@ -2,13 +2,18 @@
 clear
 
 echo "--INTRUCTIONS--"
-echo "Enter to coninue | q to quit"
-while read i
+echo "Select deck: "
+select deck in `ls $( dirname "${BASH_SOURCE[0]}" )/decks`
 do
-	echo -n "$i"
-	read -e answer < /dev/tty
-	if [ "${answer}" = "q" ]
-		then
-		break
-	fi
-done < $1
+	echo "Press ENTER to continue or q to quit"
+	while read i
+	do
+		echo "$i"
+		read -e answer < /dev/tty
+		if [ "${answer}" = "q" ]
+			then
+			break
+		fi
+	done < $( dirname "${BASH_SOURCE[0]}" )/decks/$deck
+	break
+done

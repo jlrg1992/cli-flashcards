@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "--INTRUCTIONS--"
+echo "Select deck to add questions: "
+select deck in `ls $( dirname "${BASH_SOURCE[0]}" )/decks`
+do
+	vim $( dirname "${BASH_SOURCE[0]}" )/decks/$deck
+	break
+done
